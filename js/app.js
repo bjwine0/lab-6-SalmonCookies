@@ -23,33 +23,32 @@ var pikeUl = document.getElementById('pike1');
 //var seaCentUl = document.getElementById('seaCent');
 //var capHillUl = document.getElementById('capHill');
 //var alkiBeachUl = document.getElementById('alkiBeach');
-debugger;
+
 var pike = {
   name: '1st and Pike',
   minCust: 23,
   maxCust: 65,
   aveCookSale: 6.3,
   randCust: 0,
+  cookPh: 0,
   render: function () {
     for(var i = 0; i < hours.length; i++) {               // cookies per hour       customer per hour    total cookies for day
       var newEl = document.createElement('li');
-      newEl.textContent = `${hours[i]}: ${this.custPh} cookies`;
+      newEl.textContent = `${hours[i]}: ${this.cookPh} cookies`;
       pikeUl.appendChild(newEl);
-      var custPh = Math.random();
-      console.log(custPh);
-      //var cookPh = custPh; 
-      // var custPh = (minCust, maxCust);
-      // return Math.floor(Math.random() * maxCust - minCust + 1) + minCust;
-      // console.log();
     }
-  }
+  }  
 };
-console.log(pike);
+
 function random(minCust, maxCust) {
-  return Math.floor(Math.random() * maxCust - minCust + 1) + minCust;
+  return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
 }
 pike.randCust = random(pike.minCust, pike.maxCust);
 console.log(pike);
+
+pike.cookPh = Math.ceil(pike.randCust * pike.aveCookSale);
+
+console.log(pike.randCust * pike.aveCookSale);
 
 
 
