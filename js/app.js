@@ -23,6 +23,7 @@ var seaUl = document.getElementById('seaTac');
 var centUl = document.getElementById('seaCent');
 var capUl = document.getElementById('capHill');
 var alkUl = document.getElementById('alkiBeach');
+//var totalUl = 'Total:' +
 
 var pike = {
   name: '1st and Pike',
@@ -31,7 +32,6 @@ var pike = {
   aveCookSale: 6.3,
   cookiePerHour: [],
   cookieSold: 0,
-
   randomCust: function() {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
   },
@@ -40,12 +40,11 @@ var pike = {
       var randomCustomer = this.randomCust();
       this.cookieSold = Math.floor(this.aveCookSale * randomCustomer);
       this.cookiePerHour.push(this.cookieSold);  
-      
       var pikeEl = document.createElement('li');
       pikeEl.textContent = `${hours[i]}: ${this.cookiePerHour[i]} cookies`;
       pikeUl.appendChild(pikeEl);
     }
-  },
+  }
 };
 
 pike.renderOut();
@@ -85,7 +84,7 @@ var seaCent = {
   aveCookSale: 3.7,
   cookiePerHour: [],
   cookieSold: 0,
-
+  total: 0,
   randomCust: function() {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
   },
@@ -97,7 +96,11 @@ var seaCent = {
       var centEl = document.createElement('li');
       centEl.textContent = `${hours[i]}: ${this.cookiePerHour[i]} cookies`;
       centUl.appendChild(centEl);
+      //this.total = this.total + cookiePerHour[i];
     }
+    // var totalEl = document.createElement('li');
+    // totalEl.textContent = `${hi}`;
+    // totalUl.appendChild(totalEl);
   }
 };
 seaCent.renderOut();

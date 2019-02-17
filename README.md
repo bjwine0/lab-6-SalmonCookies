@@ -54,6 +54,8 @@ Calculating the sum of these hourly totals; your output for each location should
 7pm: 57 cookies
 8pm: 29 cookies
 Total: 657 cookies
+
+
 Display the lists on sales.html. We will be adding features to this application and working with its layout throughout the week.
 
 Here are the starting numbers that you'll need to build these objects:
