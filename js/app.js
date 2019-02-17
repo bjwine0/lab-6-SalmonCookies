@@ -39,16 +39,19 @@ var pike = {
     for(var i = 0; i < hours.length; i++) {
       var randomCustomer = this.randomCust();
       this.cookieSold = Math.floor(this.aveCookSale * randomCustomer);
-      this.cookiePerHour.push(this.cookieSold);               
+      this.cookiePerHour.push(this.cookieSold);  
+      
       var pikeEl = document.createElement('li');
       pikeEl.textContent = `${hours[i]}: ${this.cookiePerHour[i]} cookies`;
       pikeUl.appendChild(pikeEl);
     }
-  }
+  },
 };
 
 pike.renderOut();
-console.log(pike);
+//console.log(pike.cookieSold);
+//console.log(pike.cookiePerHour);
+//console.log(getSum);
 
 var seaTac = {
   name: 'SeaTac Airport',
@@ -148,5 +151,5 @@ var alkiB = {
   }
 };
 alkiB.renderOut();
-console.log(alki);
+console.log(alkiB);
     
