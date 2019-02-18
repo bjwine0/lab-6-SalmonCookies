@@ -61,12 +61,24 @@ var centUl = document.getElementById('seaCent');
 var capUl = document.getElementById('capHill');
 var alkUl = document.getElementById('alkiBeach');
 
+// var pikeTable = document.getElementById('pike1');
+// var seaTable = document.getElementById('seaTac');
+// var centTable = document.getElementById('seaCent');
+// var capTable = document.getElementById('capHill');
+// var alkTable = document.getElementById('alkiBeach');
+
 //creating new instances of this type of object and passing info to object
 var pikeStore = new Store('1st and Pike', 23, 65, 6.3, pikeUl);
 var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaUl);
 var seaCentStore = new Store('Seattle Center', 11, 38, 3.7, centUl);
 var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capUl);
 var AlkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkUl);
+
+// var pikeStore = new Store('1st and Pike', 23, 65, 6.3, pikeTable);
+// var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaTable);
+// var seaCentStore = new Store('Seattle Center', 11, 38, 3.7, centTable);
+// var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
+// var AlkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
 
 // calls the renderOut method in the pike object
 pikeStore.renderOut();
