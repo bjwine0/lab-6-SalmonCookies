@@ -1,0 +1,32 @@
+thead {
+  background: #888;
+}
+
+.styleDsp {
+  background: #666;
+}
+
+.styleHour {
+  background: #888;
+}
+.something {
+  background: #888;
+}
+
+td {
+  padding: 20px;
+  border: solid 1px black;
+}
+
+
+
+th {
+  padding: 20px;
+  border: solid 1px black;
+}
+
+.styleHead {
+  background: #888;
+  padding: 20px;
+  border: solid 1px black;
+}
