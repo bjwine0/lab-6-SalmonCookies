@@ -1,7 +1,5 @@
 'use strict';
 
-var ulElements = [pikeUl, seaUl, centUl, capUl, alkUl];
-
 function Store(name, minCust, maxCust, aveCookSale, newUl) {
   this.hours = [
     '6am',
@@ -26,14 +24,12 @@ function Store(name, minCust, maxCust, aveCookSale, newUl) {
   this.aveCookSale = aveCookSale;
   this.cookiePerHour = [];
   this.cookiesold = 0;
-  //this.total = total; // Get total working!!
   this.newUl = newUl;
   // this method generates a random number between and containing min max properties
   this.randomCust = function() {
     return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
   };
-  // method called renderOut containing for loop that calculates cookies per hour and cookies sold
-  // run this loop 15 times
+  // method called renderOut containing for loop that calculates cookies per hour and cookies sold// runs 15 times
   this.renderOut = function() {
     for(var i = 0; i < this.hours.length; i++) {
       // declared variable that now stores the random number
@@ -46,9 +42,16 @@ function Store(name, minCust, maxCust, aveCookSale, newUl) {
       var newEl = document.createElement('li');
       // this variable assigns the new li node a string that says 6am: 235 cookies with .textContent property
       newEl.textContent = `${this.hours[i]}: ${this.cookiePerHour[i]} cookies`;
-      // grabbing var pikeUl declared as global var which is the ul id named pike1 and says the new node li is a child of the ul as a list item and puts it there in the document or html page 
-      this.newUl.appendChild(newEl); //**outside object ? */ 
-    }
+      // newUl is now the new location by id in which to add the string as its child in this case as a list item
+      this.newUl.appendChild(newEl); 
+    };
+    // using reduce method to sum all cookie in cookiePerHour array
+    const total = this.cookiePerHour;
+    const sum = total.reduce((total, amount) => total + amount);
+    // new variable stores method to create new list item and write string as child to parent ul
+    var cookieTotal = document.createElement('li');
+    cookieTotal.textContent = `Total: ${sum} cookies`;//Enter the name or variable ************************************
+    this.newUl.appendChild(cookieTotal);
   }
 };
 //grabbing element by id name
