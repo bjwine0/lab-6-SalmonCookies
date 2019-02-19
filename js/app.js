@@ -31,6 +31,10 @@ function Store(name, minCust, maxCust, aveCookSale, newTable) {
   };
   // method called renderOut containing for loop that calculates cookies per hour and cookies sold// runs 15 times
   this.renderOut = function() {
+    var newNameTd = document.createElement('td');
+      newNameTd.textContent = `${this.name}`;
+      this.newTable.appendChild(newNameTd);
+
     for(var i = 0; i < this.hours.length; i++) {
       // declared variable that now stores the random number
       var randomCustomer = this.randomCust();
@@ -38,19 +42,28 @@ function Store(name, minCust, maxCust, aveCookSale, newTable) {
       this.cookieSold = Math.floor(this.aveCookSale * randomCustomer);
       // cookiePerHour is being updated with the calulation above so now cookiePerHour equals the product above
       this.cookiePerHour.push(this.cookieSold);
+
+      
+
+
+
+
       // a var is being create that stores a method to create a new list item node
-      var newTr = document.createElement('th');
+      var newCphTd = document.createElement('td');
       // this variable assigns the new li node a string that says 6am: 235 cookies with .textContent property
-      newTr.textContent = `${this.hours[i]}: ${this.cookiePerHour[i]} cookies`;
+      newCphTd.textContent = `${this.cookiePerHour[i]}`;
       // newUl is now the new location by id in which to add the string as its child in this case as a list item
-      this.newTable.appendChild(newTr); 
+      this.newTable.appendChild(newCphTd); 
     };
+
+    
+
     // using reduce method to sum all cookie in cookiePerHour array
     const total = this.cookiePerHour;
     const sum = total.reduce((total, amount) => total + amount);
     // new variable stores method to create new list item and write string as child to parent ul
-    var cookieTotal = document.createElement('tr');
-    cookieTotal.textContent = `${sum} cookies`;//Enter the name or variable ************************************
+    var cookieTotal = document.createElement('td');
+    cookieTotal.textContent = `${sum}`;//Enter the name or variable ************************************
     this.newTable.appendChild(cookieTotal);
   }
 };
