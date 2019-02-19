@@ -85,7 +85,7 @@ pikeStore.renderOut();
 seaTacStore.renderOut();
 seaCentStore.renderOut();
 capHillStore.renderOut();
-AlkiBStore.renderOut();
+alkiBStore.renderOut();
 
 
 // var table = document.getElementById('hours');
