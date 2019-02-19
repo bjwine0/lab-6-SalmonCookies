@@ -25,6 +25,11 @@ th {
   border: solid 1px black;
 }
 
+tr {
+  padding: 20px;
+  border: solid 1px black;
+}
+
 .styleHead {
   background: #888;
   padding: 20px;
