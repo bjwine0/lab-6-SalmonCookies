@@ -49,8 +49,8 @@ function Store(name, minCust, maxCust, aveCookSale, newTable) {
     const total = this.cookiePerHour;
     const sum = total.reduce((total, amount) => total + amount);
     // new variable stores method to create new list item and write string as child to parent ul
-    var cookieTotal = document.createElement('li');
-    cookieTotal.textContent = `Total: ${sum} cookies`;//Enter the name or variable ************************************
+    var cookieTotal = document.createElement('tr');
+    cookieTotal.textContent = `${sum} cookies`;//Enter the name or variable ************************************
     this.newTable.appendChild(cookieTotal);
   }
 };
@@ -78,7 +78,7 @@ var pikeStore = new Store('1st and Pike', 23, 65, 6.3, pikeTable);
 var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaTable);
 var seaCentStore = new Store('Seattle Center', 11, 38, 3.7, centTable);
 var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
-var AlkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
+var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
 
 // calls the renderOut method in the pike object
 pikeStore.renderOut();
@@ -86,61 +86,4 @@ seaTacStore.renderOut();
 seaCentStore.renderOut();
 capHillStore.renderOut();
 alkiBStore.renderOut();
-
-
-// var table = document.getElementById('hours');
-// var data = [];
-
-// var people = [
- 
-//   "6:00 am",
-//   "7:00 am",
-//   "8:00 am",
-//   "9:00 am",
-//   "10:00 am",
-//   "11:00 am",
-//   "12:00 am"
-// ]
-
-// for (var i=0; i < people.length; i++) {
-//   data.push(
-//     '<th>' + people[i] + '</th>'
-//   )
-// }
-
-// console.log('my data array:', data);
-
-// for (var i = 0; i < data.length; i++) {
-//   var newRow = document.createElement('th');
-//   newRow.innerHTML = data[i];
-//   table.appendChild(newRow);
-// }
-
-
-// var table1 = document.getElementById('values');
-// var data1 = [];
-
-// var people1 = [ 
-//   {
-//     name: '1st and Pike',
-//     cookies: "kbk",
-//     total: "kjjjh"
-//   }
-// ];
-
-// for (var i=0; i < people1.length; i++) {
-//   data1.push(
-//     '<tr>' + people1[i].name + '</tr>',
-//     '<tr>' + people1[i].cookies + '</tr>',
-//     '<tr>' + people1[i].total + '</tr>'
-//   )
-// };
-
-// console.log('my data array:', data1);
-
-// for (var i = 0; i < data1.length; i++) {
-//   var newRow1 = document.createElement('td');
-//   newRow1.innerHTML = data1[i];
-//   table1.appendChild(newRow1);
-// };
     
