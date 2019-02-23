@@ -132,86 +132,71 @@ function newFooter() {
 
 //
 var pikeStore = new Store('1st and Pike', 23, 65, 6.3, pikeTable);
-var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaTable);
-var seaCentStore = new Store('Seattle Center', 11, 38, 3.7, centTable);
-var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
-var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
-var duckStore = new Store('Duck', 33, 78, 1.5, duckTable);
+// var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaTable);
+// var seaCentStore = new Store('Seattle Center', 11, 38, 3.7, centTable);
+// var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
+// var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
+
 
 
 
 //
-var allStores = [pikeStore, seaTacStore, seaCentStore, capHillStore, alkiBStore, duckStore];
+var allStores = [pikeStore];    //, seaTacStore, seaCentStore, capHillStore, alkiBStore];
 
 
 
 console.log(allStores);
 
 
-function renderTable() {
-  newHeader();
+// function renderTable() {
+//   newHeader();
 
-  for (var i = 0; i < allStores.length; i++) {
-        allStores[i].render();
-  }
+//   for (var i = 0; i < allStores.length; i++) {
+//         allStores[i].render();
+//   }
 
-  newFooter();
-}
+//   newFooter();
+// }
 
-renderTable();
+// renderTable();
 
 
 
 //
 var pikeTable = document.getElementById('pike1');
-var seaTable = document.getElementById('seaTac');
-var centTable = document.getElementById('seaCent');
-var capTable = document.getElementById('capHill');
-var alkTable = document.getElementById('alkiBeach');
-var duckTable = document.getElementById('duck');
-
-// calls the renderOut method in the pike object
-//pikeStore.render();
-//  console.log(pikeStore);
-// seaTacStore.render();
-//  console.log(seaTacStore);
-//  seaCentStore.render();
-//  console.log(seaCentStore);
-// capHillStore.render();
-//  console.log(capHillStore);
-// alkiBStore.render();
-//  console.log(alkiBStore);
+// var seaTable = document.getElementById('seaTac');
+// var centTable = document.getElementById('seaCent');
+// var capTable = document.getElementById('capHill');
+// var alkTable = document.getElementById('alkiBeach');
+var inputForm = document.getElementById('input-form');
 
 
-
-//  document.getElementById("button").addEventListener("click", handleClick); //  immediate call ? ()
-//  function handleClick() {
-//    alert("clicked i got");
-//  }
 
 
 //*************************INput validation           Form functions  */
 
-var inputForm = document.getElementById('input-form');
+
 
 var  formProperties= [];
 
 function handleFormSubmit(event) {
   event.preventDefault();
-  console.log(event);
-  console.log(event.target.name.value);
-  console.log(event.target.min.value);
-  console.log(event.target.max.value);
-  console.log(event.target.aveSale.value);
+  // console.log(event);
+  // console.log(event.target.name.value);
+  // console.log(event.target.min.value);
+  // console.log(event.target.max.value);
+  // console.log(event.target.aveSale.value);
 
   var formName = event.target.name.value;
   var formMin = event.target.min.value;
   var formMax = event.target.max.value;
   var formAveSale = event.target.aveSale.value;
 
-  var newFormSubmit = new Store(formName, parseInt(formMin), parseInt(formMax), parseInt(formAveSale));
+  var newFormSubmit = new Store(formName, parseInt(formMin), parseInt(formMax), parseInt(formAveSale), inputForm);
   console.log(newFormSubmit);
   allStores.push(newFormSubmit);
+
+  renderTable();
 
   console.log(allStores);
 
@@ -225,6 +210,20 @@ function handleFormSubmit(event) {
 };
 
 inputForm.addEventListener('submit', handleFormSubmit);
+console.log(formProperties);
+
+function renderTable() {
+  newHeader();
+
+  for (var i = 0; i < allStores.length; i++) {
+        allStores[i].render();
+  }
+
+  newFooter();
+}
+
+renderTable();
+
 
 
 //******************* cha ching noise    alert store added */
