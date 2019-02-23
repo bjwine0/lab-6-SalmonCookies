@@ -99,7 +99,7 @@ function newHeader() {
 
   
 };
-
+// creating static hourly totals data cell, looping through hours length and looping through cookies per hour array grabbing index pos at 
 function newFooter() {
   var colTotal = 0;
   var totTotals = 0;
@@ -108,14 +108,25 @@ function newFooter() {
   thElem.textContent = 'Hourly Totals';
   trElem.appendChild(thElem);
   
-  for (var i = 0; i < hours.length; i++) {   // 5 times
-    for (var j = 0; j < this.cookiePerHour.length; j++) { // 15 times
+  for (var i = 0; i < hours.length; i++) {
+    for (var j = 0; j < allStores.length; j++) {
+      colTotal += allStores[j].cookiePerHour[i];
+    } 
+      thElem = document.createElement('th');
+      thElem.textContent = colTotal;
+      trElem.appendChild(thElem);
+      table.appendChild(trElem);
 
-      this.footerTotal[j] = this.footerTotal[j] + this.cookiePerHour[i];
-    }
-  };
+      totTotals += colTotal;
+      colTotal = 0;
+  }
+  thElem = document.createElement('th');
+  thElem.textContent = totTotals;
+  trElem.appendChild(thElem);
+  table.appendChild(trElem);
     
-  
+  //console.log(colTotal);
+  //console.log(totTotals);
 };
 
 
