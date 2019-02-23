@@ -95,10 +95,13 @@ function newHeader() {
 };
 
 
+
+
 function newFooter() {
   var colTotal = 0;
   var totTotals = 0;
   var trElem = document.createElement('tr');
+  trElem.setAttribute('id', 'delete');
   var thElem = document.createElement('th');
   thElem.textContent = 'Hourly Totals';
   trElem.appendChild(thElem);
@@ -123,51 +126,43 @@ function newFooter() {
 
   //console.log(colTotal);
   //console.log(totTotals);
-    
   
 };
 
+function deleteFooter() {
+  var trElemDelete = document.getElementById('delete');
+  trElemDelete.parentNode.removeChild(trElemDelete);
 
+};
 
 
 //
 var pikeStore = new Store('1st and Pike', 23, 65, 6.3, pikeTable);
-// var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaTable);
-// var seaCentStore = new Store('Seattle Center', 11, 38, 3.7, centTable);
-// var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
-// var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
+var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaTable);
+var seaCentStore = new Store('Seattle Center', 11, 38, 3.7, centTable);
+var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
+var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
 
 
 
 
 //
-var allStores = [pikeStore];    //, seaTacStore, seaCentStore, capHillStore, alkiBStore];
+var allStores = [pikeStore, seaTacStore, seaCentStore, capHillStore, alkiBStore];
 
 
 
 console.log(allStores);
 
 
-// function renderTable() {
-//   newHeader();
-
-//   for (var i = 0; i < allStores.length; i++) {
-//         allStores[i].render();
-//   }
-
-//   newFooter();
-// }
-
-// renderTable();
 
 
 
 //
 var pikeTable = document.getElementById('pike1');
-// var seaTable = document.getElementById('seaTac');
-// var centTable = document.getElementById('seaCent');
-// var capTable = document.getElementById('capHill');
-// var alkTable = document.getElementById('alkiBeach');
+var seaTable = document.getElementById('seaTac');
+var centTable = document.getElementById('seaCent');
+var capTable = document.getElementById('capHill');
+var alkTable = document.getElementById('alkiBeach');
 var inputForm = document.getElementById('input-form');
 
 
@@ -181,11 +176,6 @@ var  formProperties= [];
 
 function handleFormSubmit(event) {
   event.preventDefault();
-  // console.log(event);
-  // console.log(event.target.name.value);
-  // console.log(event.target.min.value);
-  // console.log(event.target.max.value);
-  // console.log(event.target.aveSale.value);
 
   var formName = event.target.name.value;
   var formMin = event.target.min.value;
@@ -196,7 +186,8 @@ function handleFormSubmit(event) {
   console.log(newFormSubmit);
   allStores.push(newFormSubmit);
 
-  renderTable();
+  //deleteFooter();
+  newFormSubmit.render();
 
   console.log(allStores);
 
@@ -206,7 +197,9 @@ function handleFormSubmit(event) {
   event.target.aveSale.value = null;
 
   formProperties.unshift(newFormSubmit);
-  
+  //newFormSubmit.render();
+  deleteFooter();
+  newFooter();
 };
 
 inputForm.addEventListener('submit', handleFormSubmit);
