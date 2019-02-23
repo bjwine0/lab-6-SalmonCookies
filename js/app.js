@@ -99,7 +99,7 @@ function newHeader() {
 
   
 };
-
+// creating static hourly totals data cell, looping through hours length and looping through cookies per hour array grabbing index pos at 
 function newFooter() {
   var colTotal = 0;
   var totTotals = 0;
@@ -125,8 +125,8 @@ function newFooter() {
   trElem.appendChild(thElem);
   table.appendChild(trElem);
     
-  console.log(colTotal);
-  console.log(totTotals);
+  //console.log(colTotal);
+  //console.log(totTotals);
 };
 
 
