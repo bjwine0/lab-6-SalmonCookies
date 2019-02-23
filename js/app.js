@@ -6,7 +6,7 @@ var hours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:0
 var table = document.getElementById('dataTable');
 //debugger;
 //constructor object holding properties and values for each location that is passed in and calculating data cells with methods
-function Store(name, minCust, maxCust, aveCookSale, tableId, Comment) {
+function Store(name, minCust, maxCust, aveCookSale) {
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -16,7 +16,7 @@ function Store(name, minCust, maxCust, aveCookSale, tableId, Comment) {
   //this.footerTotal = [];
   //this.footerTotSum = 0;
   this.cookieSold = 0;
-  this.tableId = tableId;
+  //this.tableId = tableId;
   //console.log(this.tableId);
 
   // declaring method that calculates the number of customers each hour between and including the min and max numbers for each store and pushes the data into array custEachHour
@@ -38,14 +38,9 @@ function Store(name, minCust, maxCust, aveCookSale, tableId, Comment) {
       this.cookieSold += oneHour;
       //console.log(this.cookieSold);
       //console.log(oneHour);
-    };
-    
-    
-
-    //console.log(this.cookieSold);
-
-
+    }
   };
+
   //
   Store.prototype.render = function() {   // ?? keep
     this.calcCookiePerHour();
@@ -67,27 +62,13 @@ function Store(name, minCust, maxCust, aveCookSale, tableId, Comment) {
     trElem.appendChild(thElem);
     table.appendChild(trElem);
 
-    
-    
-  };
-   
-  // for (var i = 0; i < hours.length; i++) {   // 5 times
-  //   for (var j = 0; j < this.cookiePerHour.length; j++) { // 15 times
-
-  //     this.footerTotal[j] = this.footerTotal[j] + this.cookiePerHour[i];
-  //   }
-  // };
-  
-  //   console.log(this.footerTotal);
-  //   console.log(this.footerTotSum);
+  }
 }
 //
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 
-
 }
-
 
 // creating header row.  First row is created then theader data is created saying location. then pinned to row
 function newHeader() {
@@ -112,6 +93,7 @@ function newHeader() {
 
   
 };
+
 
 function newFooter() {
   var colTotal = 0;
@@ -146,6 +128,8 @@ function newFooter() {
 };
 
 
+
+
 //
 var pikeStore = new Store('1st and Pike', 23, 65, 6.3, pikeTable);
 var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaTable);
@@ -154,9 +138,14 @@ var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
 var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
 var duckStore = new Store('Duck', 33, 78, 1.5, duckTable);
 
+
+
 //
 var allStores = [pikeStore, seaTacStore, seaCentStore, capHillStore, alkiBStore, duckStore];
 
+
+
+console.log(allStores);
 
 
 function renderTable() {
@@ -170,6 +159,7 @@ function renderTable() {
 }
 
 renderTable();
+
 
 
 //
@@ -203,64 +193,38 @@ var duckTable = document.getElementById('duck');
 //*************************INput validation           Form functions  */
 
 var inputForm = document.getElementById('input-form');
-var chatList = document.getElementById('chat-list');
-var allComments = [];
 
+var  formProperties= [];
 
-var Comment = function(locName, minC, maxC, aveCookSaleS) {
-  this.locName = locName;
-  this.minC = minC;
-  this.maxC = maxC;
-  this.aveCookSaleS = aveCookSaleS;
-};
-
-Comment.prototype.render = function() {
-
-  var trElem = document.createElement('tr');
-  trElem.innerHTML = '<b>' + this.locName + '; </b><em>' + this.text + '</em>';
-  return trElem;
-
-
-};
-
-
-
-
-function handleCommentSubmit(event) {
+function handleFormSubmit(event) {
   event.preventDefault();
   console.log(event);
   console.log(event.target.name.value);
   console.log(event.target.min.value);
   console.log(event.target.max.value);
-  console.log(event.target.aveCookSale.value);
+  console.log(event.target.aveSale.value);
 
   var formName = event.target.name.value;
   var formMin = event.target.min.value;
   var formMax = event.target.max.value;
-  var formAveCookSale = event.target.aveCookSale.value;
+  var formAveSale = event.target.aveSale.value;
 
-  var newComment = new Comment(formName, formMin, formMax, formAveCookSale);
+  var newFormSubmit = new Store(formName, parseInt(formMin), parseInt(formMax), parseInt(formAveSale));
+  console.log(newFormSubmit);
+  allStores.push(newFormSubmit);
+
+  console.log(allStores);
 
   event.target.name.value = null;
   event.target.min.value = null;
+  event.target.max.value = null;
+  event.target.aveSale.value = null;
 
-  allComments.unshift(newComment);
-  renderAllComments();
+  formProperties.unshift(newFormSubmit);
+  
+};
 
-
-}
-
-function renderAllComments () {
-  chatList.innerHTML = '';
-  for( var i = 0; i < allComments.length; i++) {
-    chatList.appendChild(allComments[i].render());
-  }
-}
-
-
-
-
-inputForm.addEventListener('submit', handleCommentSubmit);
+inputForm.addEventListener('submit', handleFormSubmit);
 
 
 //******************* cha ching noise    alert store added */
