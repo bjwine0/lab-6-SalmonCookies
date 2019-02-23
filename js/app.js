@@ -6,7 +6,7 @@ var hours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:0
 var table = document.getElementById('dataTable');
 //debugger;
 //constructor object holding properties and values for each location that is passed in and calculating data cells with methods
-function Store(name, minCust, maxCust, aveCookSale, tableId) {
+function Store(name, minCust, maxCust, aveCookSale) {
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -16,7 +16,7 @@ function Store(name, minCust, maxCust, aveCookSale, tableId) {
   //this.footerTotal = [];
   //this.footerTotSum = 0;
   this.cookieSold = 0;
-  this.tableId = tableId;
+  //this.tableId = tableId;
   //console.log(this.tableId);
 
   // declaring method that calculates the number of customers each hour between and including the min and max numbers for each store and pushes the data into array custEachHour
@@ -38,11 +38,9 @@ function Store(name, minCust, maxCust, aveCookSale, tableId) {
       this.cookieSold += oneHour;
       //console.log(this.cookieSold);
       //console.log(oneHour);
-    };
-    
-    //console.log(this.cookieSold);
-
+    }
   };
+
   //
   Store.prototype.render = function() {   // ?? keep
     this.calcCookiePerHour();
@@ -64,17 +62,13 @@ function Store(name, minCust, maxCust, aveCookSale, tableId) {
     trElem.appendChild(thElem);
     table.appendChild(trElem);
 
-  
-  };
-  
+  }
 }
 //
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 
-
 }
-
 
 // creating header row.  First row is created then theader data is created saying location. then pinned to row
 function newHeader() {
@@ -99,7 +93,8 @@ function newHeader() {
 
   
 };
-// creating static hourly totals data cell, looping through hours length and looping through cookies per hour array grabbing index pos at gi
+
+
 function newFooter() {
   var colTotal = 0;
   var totTotals = 0;
@@ -120,14 +115,19 @@ function newFooter() {
       totTotals += colTotal;
       colTotal = 0;
   }
+  
   thElem = document.createElement('th');
   thElem.textContent = totTotals;
   trElem.appendChild(thElem);
   table.appendChild(trElem);
-    
+
   //console.log(colTotal);
   //console.log(totTotals);
+    
+  
 };
+
+
 
 
 //
@@ -138,9 +138,14 @@ var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
 var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
 var duckStore = new Store('Duck', 33, 78, 1.5, duckTable);
 
+
+
 //
 var allStores = [pikeStore, seaTacStore, seaCentStore, capHillStore, alkiBStore, duckStore];
 
+
+
+console.log(allStores);
 
 
 function renderTable() {
@@ -154,6 +159,7 @@ function renderTable() {
 }
 
 renderTable();
+
 
 
 //
@@ -175,4 +181,50 @@ var duckTable = document.getElementById('duck');
 //  console.log(capHillStore);
 // alkiBStore.render();
 //  console.log(alkiBStore);
-    
+
+
+
+//  document.getElementById("button").addEventListener("click", handleClick); //  immediate call ? ()
+//  function handleClick() {
+//    alert("clicked i got");
+//  }
+
+
+//*************************INput validation           Form functions  */
+
+var inputForm = document.getElementById('input-form');
+
+var  formProperties= [];
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  console.log(event);
+  console.log(event.target.name.value);
+  console.log(event.target.min.value);
+  console.log(event.target.max.value);
+  console.log(event.target.aveSale.value);
+
+  var formName = event.target.name.value;
+  var formMin = event.target.min.value;
+  var formMax = event.target.max.value;
+  var formAveSale = event.target.aveSale.value;
+
+  var newFormSubmit = new Store(formName, parseInt(formMin), parseInt(formMax), parseInt(formAveSale));
+  console.log(newFormSubmit);
+  allStores.push(newFormSubmit);
+
+  console.log(allStores);
+
+  event.target.name.value = null;
+  event.target.min.value = null;
+  event.target.max.value = null;
+  event.target.aveSale.value = null;
+
+  formProperties.unshift(newFormSubmit);
+  
+};
+
+inputForm.addEventListener('submit', handleFormSubmit);
+
+
+//******************* cha ching noise    alert store added */
