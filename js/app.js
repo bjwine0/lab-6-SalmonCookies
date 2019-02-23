@@ -99,7 +99,7 @@ function newHeader() {
 
   
 };
-// creating static hourly totals data cell, looping through hours length and looping through cookies per hour array grabbing index pos at 
+// creating static hourly totals data cell, looping through hours length and looping through cookies per hour array grabbing index pos at gi
 function newFooter() {
   var colTotal = 0;
   var totTotals = 0;
