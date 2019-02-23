@@ -6,7 +6,7 @@ var hours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:0
 var table = document.getElementById('dataTable');
 //debugger;
 //constructor object holding properties and values for each location that is passed in and calculating data cells with methods
-function Store(name, minCust, maxCust, aveCookSale, tableId) {
+function Store(name, minCust, maxCust, aveCookSale, tableId, Comment) {
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -40,7 +40,10 @@ function Store(name, minCust, maxCust, aveCookSale, tableId) {
       //console.log(oneHour);
     };
     
+    
+
     //console.log(this.cookieSold);
+
 
   };
   //
@@ -64,9 +67,19 @@ function Store(name, minCust, maxCust, aveCookSale, tableId) {
     trElem.appendChild(thElem);
     table.appendChild(trElem);
 
-  
+    
+    
   };
+   
+  // for (var i = 0; i < hours.length; i++) {   // 5 times
+  //   for (var j = 0; j < this.cookiePerHour.length; j++) { // 15 times
+
+  //     this.footerTotal[j] = this.footerTotal[j] + this.cookiePerHour[i];
+  //   }
+  // };
   
+  //   console.log(this.footerTotal);
+  //   console.log(this.footerTotSum);
 }
 //
 function random(min, max) {
@@ -99,7 +112,7 @@ function newHeader() {
 
   
 };
-// creating static hourly totals data cell, looping through hours length and looping through cookies per hour array grabbing index pos at gi
+
 function newFooter() {
   var colTotal = 0;
   var totTotals = 0;
@@ -120,13 +133,16 @@ function newFooter() {
       totTotals += colTotal;
       colTotal = 0;
   }
+  
   thElem = document.createElement('th');
   thElem.textContent = totTotals;
   trElem.appendChild(thElem);
   table.appendChild(trElem);
-    
+
   //console.log(colTotal);
   //console.log(totTotals);
+    
+  
 };
 
 
@@ -175,4 +191,76 @@ var duckTable = document.getElementById('duck');
 //  console.log(capHillStore);
 // alkiBStore.render();
 //  console.log(alkiBStore);
-    
+
+
+
+//  document.getElementById("button").addEventListener("click", handleClick); //  immediate call ? ()
+//  function handleClick() {
+//    alert("clicked i got");
+//  }
+
+
+//*************************INput validation           Form functions  */
+
+var inputForm = document.getElementById('input-form');
+var chatList = document.getElementById('chat-list');
+var allComments = [];
+
+
+var Comment = function(locName, minC, maxC, aveCookSaleS) {
+  this.locName = locName;
+  this.minC = minC;
+  this.maxC = maxC;
+  this.aveCookSaleS = aveCookSaleS;
+};
+
+Comment.prototype.render = function() {
+
+  var trElem = document.createElement('tr');
+  trElem.innerHTML = '<b>' + this.locName + '; </b><em>' + this.text + '</em>';
+  return trElem;
+
+
+};
+
+
+
+
+function handleCommentSubmit(event) {
+  event.preventDefault();
+  console.log(event);
+  console.log(event.target.name.value);
+  console.log(event.target.min.value);
+  console.log(event.target.max.value);
+  console.log(event.target.aveCookSale.value);
+
+  var formName = event.target.name.value;
+  var formMin = event.target.min.value;
+  var formMax = event.target.max.value;
+  var formAveCookSale = event.target.aveCookSale.value;
+
+  var newComment = new Comment(formName, formMin, formMax, formAveCookSale);
+
+  event.target.name.value = null;
+  event.target.min.value = null;
+
+  allComments.unshift(newComment);
+  renderAllComments();
+
+
+}
+
+function renderAllComments () {
+  chatList.innerHTML = '';
+  for( var i = 0; i < allComments.length; i++) {
+    chatList.appendChild(allComments[i].render());
+  }
+}
+
+
+
+
+inputForm.addEventListener('submit', handleCommentSubmit);
+
+
+//******************* cha ching noise    alert store added */
