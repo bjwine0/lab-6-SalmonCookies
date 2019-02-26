@@ -19,7 +19,6 @@ td {
 }
 
 
-
 th {
   padding: 20px;
   border: solid 1px black;
@@ -28,10 +27,68 @@ th {
 tr {
   padding: 20px;
   border: solid 1px black;
+  background-color: #524747;
+  color: white;
+  border-radius: 50px;
 }
+
 
 .styleHead {
   background: #888;
   padding: 20px;
   border: solid 1px black;
 }
+
+fieldset {
+  background-color: #b39b9b;
+}
+
+legend {
+  font-size: 30px;
+}
+
+label {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+input {
+  margin-right: 30px;
+}
+
+button:hover{
+  background-color: gray;
+  color: black;
+}
+  
+button {
+  background-color: rgb(8, 8, 8);
+  color: #a14e4e;
+  transition-duration: 350ms;
+  display: inline;  
+  left: 320px;
+  bottom: 340px;
+  font-size: 20px;
+  margin-left: 30px;
+  border-radius: 15px;
+  padding-left: 70px;
+  padding-right: 70px;
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+tr th {
+  background-color: #0e0b0b;
+  color: white;
+  
+}
+ 
+td~td {
+  background-color: #a14e4e;
+  color: white;
+  border-radius: 5px;
+}
+  
+  
