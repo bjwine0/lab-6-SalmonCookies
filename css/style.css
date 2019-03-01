@@ -3,8 +3,36 @@
 }
 
 body {
+  width: 968px;
   background-color: #983535;
 }
+header h1 {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+
+header img {
+  width: 15%;
+}
+
+header, section, body {
+  margin: 0 auto;
+}
+
+.sec1 img {
+  float: left;
+  width: 50%;
+}
+
+.sam1 {
+  width: 10%;
+}
+
+.sam2 {
+  width: 10%;
+}
+
 thead {
   background: #888;
 }
@@ -116,4 +144,6 @@ html {
 
 .headerFont3 {
 font-family: fantasy;
+
+
 
