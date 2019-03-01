@@ -1,3 +1,10 @@
+.html {
+  background-color: gray;
+}
+
+body {
+  background-color: #983535;
+}
 thead {
   background: #888;
 }
@@ -90,6 +97,7 @@ td~td {
   border-radius: 5px;
 }
   
+
 html {
   background-color: #c75d5d;
 }
@@ -108,4 +116,4 @@ html {
 
 .headerFont3 {
 font-family: fantasy;
-} 
+
