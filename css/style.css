@@ -99,3 +99,22 @@ td~td {
 }
   
   
+html {
+  background-color: #c75d5d;
+}
+
+.titleFont {
+  font-family: Georgia, serif;
+}
+
+.headerFont1 {
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+.headerFont2 {
+  font-family: cursive;
+}
+
+.headerFont3 {
+font-family: fantasy;
+}
