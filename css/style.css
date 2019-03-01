@@ -39,7 +39,6 @@ tr {
   border-radius: 50px;
 }
 
-
 .styleHead {
   background: #888;
   padding: 20px;
@@ -98,7 +97,7 @@ td~td {
   border-radius: 5px;
 }
   
-  
+
 html {
   background-color: #c75d5d;
 }
@@ -117,4 +116,4 @@ html {
 
 .headerFont3 {
 font-family: fantasy;
-}
+
