@@ -12,8 +12,36 @@ header h1 {
   color: white;
 }
 
+body h1 {
+  font-size: 50px;
+  color: white;
+}
+
+.bod {
+  display: inline-block;
+  position: relative;
+  width: 700px;
+  margin-bottom: 60px;
+}
+
+.bod img {
+  width: 160%;
+  height: 200px;
+  position: absolute;
+  left: 560px;
+  top: 3px;
+
+}
+
+div a {
+  position: absolute;
+  left: 500px;
+  bottom: 45px;
+  color: white;
+}
+
 header img {
-  width: 15%;
+  
 }
 
 header, section, body {
@@ -78,7 +106,8 @@ fieldset {
 }
 
 legend {
-  font-size: 30px;
+  font-size: 35px;
+  color: black;
 }
 
 label {
