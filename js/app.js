@@ -4,7 +4,7 @@ var hours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:0
 
 // creating table variable so we can accecc and push the rows and data to build out the table
 var table = document.getElementById('dataTable');
-//debugger;
+debugger;
 //constructor object holding properties and values for each location that is passed in and calculating data cells with methods
 function Store(name, minCust, maxCust, aveCookSale) {
   this.name = name;
@@ -13,50 +13,39 @@ function Store(name, minCust, maxCust, aveCookSale) {
   this.aveCookSale = aveCookSale;
   this.custEachHour = [];
   this.cookiePerHour = [];
-  //this.footerTotal = [];
-  //this.footerTotSum = 0;
   this.cookieSold = 0;
-  //this.tableId = tableId;
-  //console.log(this.tableId);
+ 
 
   // declaring method that calculates the number of customers each hour between and including the min and max numbers for each store and pushes the data into array custEachHour
   this.calcCustEachHour = function() {  
     for (var i = 0; i < hours.length; i++) {
       this.custEachHour.push(random(this.minCust, this.maxCust)); // getting math function from global variable called random ln 59
-      //console.log(this.custEachHour);
     }
   };
   //
   this.calcCookiePerHour = function() {
     this.calcCustEachHour();
     for (var i = 0; i < hours.length; i++) {
-      
       var oneHour = Math.ceil(this.custEachHour[i] * this.aveCookSale);
-      //console.log(oneHour);
       this.cookiePerHour.push(oneHour);
-      //console.log(this.cookiePerHour);
       this.cookieSold += oneHour;
-      //console.log(this.cookieSold);
-      //console.log(oneHour);
+      
     }
   };
 
-  //
   Store.prototype.render = function() {   // ?? keep
     this.calcCookiePerHour();
-    //
     var trElem = document.createElement('tr');
     var tdElem = document.createElement('td');
-    //
     tdElem.textContent = this.name;
     trElem.appendChild(tdElem);
-    //
+    
     for (var i = 0; i < hours.length; i++) {
       tdElem = document.createElement('td');
       tdElem.textContent = this.cookiePerHour[i];
       trElem.appendChild(tdElem);
     }
-    //
+    
     var thElem = document.createElement('th');
     thElem.textContent = this.cookieSold;
     trElem.appendChild(thElem);
@@ -64,10 +53,9 @@ function Store(name, minCust, maxCust, aveCookSale) {
 
   }
 }
-//
+
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-
 }
 
 // creating header row.  First row is created then theader data is created saying location. then pinned to row
@@ -93,9 +81,6 @@ function newHeader() {
 
   
 };
-
-
-
 
 function newFooter() {
   var colTotal = 0;
@@ -144,20 +129,11 @@ var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
 var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
 
 
-
-
-//
 var allStores = [pikeStore, seaTacStore, seaCentStore, capHillStore, alkiBStore];
-
-
 
 console.log(allStores);
 
 
-
-
-
-//
 var pikeTable = document.getElementById('pike1');
 var seaTable = document.getElementById('seaTac');
 var centTable = document.getElementById('seaCent');
@@ -209,7 +185,7 @@ function renderTable() {
   newHeader();
 
   for (var i = 0; i < allStores.length; i++) {
-        allStores[i].render();
+    allStores[i].render();
   }
 
   newFooter();
