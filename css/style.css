@@ -1,21 +1,40 @@
-.html {
-  background-color: gray;
-}
 
-body {
-  
+.front {
+  background-color: #983535;
+  width: 1200px;
+}
+.sales {
   background-color: #983535;
 }
-header h1 {
-  text-align: center;
+
+.titlefont {
   font-size: 50px;
   color: white;
 }
 
-body h1 {
-  font-size: 50px;
-  color: white;
+#header {
+  position: relative;
 }
+
+nav a {
+  width: 20px;
+  height: 20px;
+  color: white;
+  position: absolute;
+  top: 0px;
+  right: 260px;
+}
+
+.nav1 {
+  position: relative;
+}
+
+.bod h1 {
+  margin-left: 50px;
+  font-size: 40px;
+}
+
+
 
 .bod {
   display: inline-block;
@@ -28,20 +47,23 @@ body h1 {
   width: 160%;
   height: 200px;
   position: absolute;
-  left: 560px;
+  left: 555px;
   top: 3px;
 
 }
 
 div a {
   position: absolute;
-  left: 500px;
-  bottom: 45px;
-  color: white;
+  left: 445px;
+  bottom: 35px;
+  color: black;
 }
 
 header img {
-  
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  top: 10px;
 }
 
 header, section, body {
@@ -50,7 +72,8 @@ header, section, body {
 
 .sec1 img {
   float: left;
-  width: 50%;
+  width: 40%;
+  margin-right: 30px;
 }
 
 .sam1 {
@@ -103,6 +126,7 @@ tr {
 
 fieldset {
   background-color: #b39b9b;
+  margin-top: 50px;
 }
 
 legend {
@@ -154,10 +178,6 @@ td~td {
   border-radius: 5px;
 }
   
-
-html {
-  background-color: #c75d5d;
-}
 
 .titleFont {
   font-family: Georgia, serif;
