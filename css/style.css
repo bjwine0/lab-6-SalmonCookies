@@ -1,40 +1,172 @@
-
+header, section, body {
+  margin: 0 auto;
+}
+#front-html {
+  background-color: #983535;
+}
 .front {
-  background-color: #983535;
+  background-color: white;
   width: 1200px;
+  
 }
-.sales {
-  background-color: #983535;
-}
+
 
 .titlefont {
   font-size: 50px;
-  color: white;
+  color: rgb(26, 23, 23);
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #983535;
 }
 
-#header {
+.header {
   position: relative;
+  padding-top: 1px;
+}
+
+
+header img {
+  height: 125%;
+  width: 10%;
+  position: absolute;
+  top: 10px;
+  
 }
 
 nav a {
-  width: 20px;
-  height: 20px;
-  color: white;
-  position: absolute;
-  top: 0px;
-  right: 260px;
+  color: #983535;
+  text-decoration: none;
+
 }
 
-.nav1 {
+a:hover, a:active {
+  color: rgb(224, 120, 138);
+  text-decoration: underline;
+  font-size: 150%;
+}
+
+#nav1 {
+  
+  margin-bottom: 1px;
+  margin-top: 30px;
+}
+
+.sec1 {
+  height: 325px;
   position: relative;
 }
+
+.sec1 h1 {
+  position: absolute;
+  font-size: 16px;
+  left: 613px;
+  right: 78px;
+  top: 30px;
+  font-weight: normal;
+  line-height: 30px;
+}
+
+.sec1 img {
+  float: left;
+  width: 41%;
+  margin-left: 76px;
+}
+
+#invert {
+  
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  right: 0px;
+
+}
+
+
+.sec2 {
+  position: relative;
+}
+
+.index-foot {
+  margin-bottom: 100px;
+}
+
+
+.headFont2 {
+  font-family: cursive;
+  text-align: center;
+  color: rgb(15, 14, 14);
+  text-decoration: underline;
+}
+
+.hr1 {
+  margin-bottom: 75px;
+  border: 6px solid #983535;
+  border-radius: 5px;
+  width: 700px;
+  
+}
+
+.design {
+  position: relative;
+  height: 300px;
+}
+
+.design p {
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.img1 {
+  position: relative;
+  bottom: 225px;
+  left: 245px;
+}
+
+.img2 {
+  position: relative;
+  left: 550px;
+  bottom: 225px;
+}
+
+.hr2 {
+  margin-bottom: 75px;
+  border: 6px solid #983535;
+  border-radius: 5px;
+  width: 700px;
+  margin-top: 50px;
+}
+
+.headerFont3 {
+font-family: fantasy;
+}
+
+ul {
+  text-align: center;
+  margin-left: 25px;
+  margin-bottom: 1px;
+}
+
+li {
+  display: inline-block;
+  
+  margin-right: 80px;
+}
+
+li p {
+  width: 125px;
+}
+
+/* ********* sales html ************/
 
 .bod h1 {
   margin-left: 50px;
   font-size: 40px;
 }
-
-
 
 .bod {
   display: inline-block;
@@ -57,23 +189,6 @@ div a {
   left: 445px;
   bottom: 35px;
   color: black;
-}
-
-header img {
-  height: 10%;
-  width: 10%;
-  position: absolute;
-  top: 10px;
-}
-
-header, section, body {
-  margin: 0 auto;
-}
-
-.sec1 img {
-  float: left;
-  width: 40%;
-  margin-right: 30px;
 }
 
 .sam1 {
@@ -178,19 +293,3 @@ td~td {
   border-radius: 5px;
 }
   
-
-.titleFont {
-  font-family: Georgia, serif;
-}
-
-.headerFont1 {
-  font-family: Impact, Charcoal, sans-serif;
-}
-
-.headerFont2 {
-  font-family: cursive;
-}
-
-.headerFont3 {
-font-family: fantasy;
-}
