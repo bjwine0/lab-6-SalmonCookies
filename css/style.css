@@ -70,6 +70,7 @@ a:hover, a:active {
   float: left;
   width: 41%;
   margin-left: 76px;
+  border-radius: 42%;
 }
 
 #invert {
@@ -135,10 +136,38 @@ a:hover, a:active {
 
 .hr2 {
   margin-bottom: 75px;
-  border: 6px solid #983535;
+  border: 2px solid #983535;
   border-radius: 5px;
   width: 700px;
   margin-top: 50px;
+}
+
+.hr3 {
+  margin-bottom: 30px;
+  margin-top: 60px;
+  border: 2px solid #983535;
+  border-radius: 5px;
+  width: 700px;
+  
+}
+
+.merch {
+  margin-bottom: 85px;
+  position: relative;
+  margin-top: 140px;
+}
+.merch h1 {
+  position: absolute;
+  bottom: 304px;
+  left: 200px;
+}
+.merch p {
+  position: absolute;
+  left: 200px;
+}
+
+img#merch {
+  margin-left: 450px;
 }
 
 .headerFont3 {
@@ -160,6 +189,60 @@ li {
 li p {
   width: 125px;
 }
+
+footer p {
+  margin-bottom: 10px;
+  color: rgb(139, 130, 130); 
+  text-align: center;
+}
+
+footer img {
+  position: absolute;
+  bottom: 117px;
+  right: 569px;
+  padding: 0px 6px;
+  background-color: white;
+}
+
+footer {
+  margin-bottom: 100px;
+  position: relative;
+}
+
+footer hr {
+  border: .25px solid #983535; 
+  margin-bottom: 35px;
+}
+
+.button2:hover{
+  background-color: #b66565;
+  color: #983535;
+}
+  
+.button2 {
+  background-color: #983535;
+  color: white;
+  transition-duration: 350ms;
+  font-size: 20px;
+  border-radius: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  bottom: 194px;  
+  left: 169px;
+}
+
+.jeff {
+  position: absolute;
+  left: 555px;
+  bottom: 532px;
+  border-radius: 50%;
+}
+
 
 /* ********* sales html ************/
 
@@ -292,4 +375,5 @@ td~td {
   color: white;
   border-radius: 5px;
 }
-  
+
+
