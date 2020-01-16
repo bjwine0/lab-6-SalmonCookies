@@ -2,9 +2,11 @@
 
 var hours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:00 pm','1:00 pm','2:00 pm','3:00 pm','4:00 pm','5:00 pm','6:00 pm','7:00 pm','8:00 pm',];
 
-// creating table variable so we can accecc and push the rows and data to build out the table
+// creating table variable so we can access and push the rows and data to build out the table
 var table = document.getElementById('dataTable');
+
 // debugger;
+
 //constructor object holding properties and values for each location that is passed in and calculating data cells with methods
 function Store(name, minCust, maxCust, aveCookSale) {
   this.name = name;
@@ -32,26 +34,25 @@ function Store(name, minCust, maxCust, aveCookSale) {
       
     }
   };
+}
 
-  Store.prototype.render = function() {   // ?? keep
-    this.calcCookiePerHour();
-    var trElem = document.createElement('tr');
-    var tdElem = document.createElement('td');
-    tdElem.textContent = this.name;
+Store.prototype.render = function() {   // ?? keep
+  this.calcCookiePerHour();
+  var trElem = document.createElement('tr');
+  var tdElem = document.createElement('td');
+  tdElem.textContent = this.name;
+  trElem.appendChild(tdElem);
+
+  for (var i = 0; i < hours.length; i++) {
+    tdElem = document.createElement('td');
+    tdElem.textContent = this.cookiePerHour[i];
     trElem.appendChild(tdElem);
-    
-    for (var i = 0; i < hours.length; i++) {
-      tdElem = document.createElement('td');
-      tdElem.textContent = this.cookiePerHour[i];
-      trElem.appendChild(tdElem);
-    }
-    
-    var thElem = document.createElement('th');
-    thElem.textContent = this.cookieSold;
-    trElem.appendChild(thElem);
-    table.appendChild(trElem);
-
   }
+
+  var thElem = document.createElement('th');
+  thElem.textContent = this.cookieSold;
+  trElem.appendChild(thElem);
+  table.appendChild(trElem);
 }
 
 function random(min, max) {
@@ -108,31 +109,20 @@ function newFooter() {
   thElem.textContent = totTotals;
   trElem.appendChild(thElem);
   table.appendChild(trElem);
-
-  //console.log(colTotal);
-  //console.log(totTotals);
-  
 };
 
 function deleteFooter() {
   var trElemDelete = document.getElementById('delete');
   trElemDelete.parentNode.removeChild(trElemDelete);
-
 };
 
-
-//
 var pikeStore = new Store('1st and Pike', 23, 65, 6.3, pikeTable);
 var seaTacStore = new Store('SeaTac Airport', 3, 24, 1.2, seaTable);
 var seaCentStore = new Store('Seattle Center', 11, 38, 3.7, centTable);
 var capHillStore = new Store('Capitol Hill', 20, 38, 2.3, capTable);
 var alkiBStore = new Store('Alki Beach', 2, 16, 4.6, alkTable);
 
-
 var allStores = [pikeStore, seaTacStore, seaCentStore, capHillStore, alkiBStore];
-
-console.log(allStores);
-
 
 var pikeTable = document.getElementById('pike1');
 var seaTable = document.getElementById('seaTac');
@@ -140,13 +130,6 @@ var centTable = document.getElementById('seaCent');
 var capTable = document.getElementById('capHill');
 var alkTable = document.getElementById('alkiBeach');
 var inputForm = document.getElementById('input-form');
-
-
-
-
-//*************************INput validation           Form functions  */
-
-
 
 var  formProperties= [];
 
@@ -162,10 +145,7 @@ function handleFormSubmit(event) {
   console.log(newFormSubmit);
   allStores.push(newFormSubmit);
 
-  //deleteFooter();
   newFormSubmit.render();
-
-  console.log(allStores);
 
   event.target.name.value = null;
   event.target.min.value = null;
@@ -173,7 +153,7 @@ function handleFormSubmit(event) {
   event.target.aveSale.value = null;
 
   formProperties.unshift(newFormSubmit);
-  //newFormSubmit.render();
+ 
   deleteFooter();
   newFooter();
 };
@@ -187,12 +167,7 @@ function renderTable() {
   for (var i = 0; i < allStores.length; i++) {
     allStores[i].render();
   }
-
   newFooter();
 }
 
 renderTable();
-
-
-
-//******************* cha ching noise    alert store added */
